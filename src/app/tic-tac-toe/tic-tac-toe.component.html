@@ -1,0 +1,47 @@
+   
+   <div class="body">
+   
+      <marquee>
+        <div class="game-message">
+            
+            <p>Hello everyone, I just wanted to let you all know that the game we were planning to play is currently under process. We apologize for any inconvenience this may cause, but we are doing our best to get it ready as soon as possible. We know you're all excited to participate, and we appreciate your patience while we work to make sure everything is just right. Please stay tuned for updates, and we'll let you know as soon as the game is ready to go. Thank you for your understanding!</p>
+            <p>Best regards, <br></p>
+          </div>
+
+      </marquee>
+      
+    <div class="container">
+    <h1>Tic Tac Toe </h1>
+    <div [hidden]="!showInputs">
+      <label for="player1">Player 1:</label>
+      <input type="text" id="player1" [(ngModel)]="player1Name">
+      <label for="player2">Player 2:</label>
+      <input type="text" id="player2" [(ngModel)]="player2Name"><br>
+      <p class="error">{{error}}</p>
+      <button class="btn" (click)="startGame()">Start Game</button>
+    </div>
+    <div [hidden]="showInputs">
+      <p class="currentPlayer">Current Player: {{ currentPlayer }}</p>
+      <table>
+        <tr *ngFor="let row of gameBoard; let i = index">
+          <td *ngFor="let col of row; let j = index" (click)="makeMove(i, j)">{{ gameBoard[i][j] }}</td>
+        </tr>
+      </table>
+      <div class="winner" [hidden]="!winner">Winner: {{ winner }}</div>
+      <button class="btn" [hidden]="!winner" (click)="resetGame()">Play Again</button>
+    </div>
+  </div>
+  
+    <footer class="footer">
+      <div class="container1">
+        <div class="footer-content">
+          <span>Developed By: Subhaprakash Nayak</span>
+          <a href="mailto:psubha936@gmail.com">Click here to send an email</a>
+          <a href="https://subhaprakashnayak-portfolio.netlify.app/" target="_blank">Visit my portfolio!</a>
+        </div>
+      </div>
+    </footer>     
+   </div>
+
+  
+  
